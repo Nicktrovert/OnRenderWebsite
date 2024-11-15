@@ -31,17 +31,17 @@
 
         public void Attach(ICounterObserver observer)
         {
-            this._observers.Add(observer);
+            _instance._observers.Add(observer);
         }
 
         public void Detach(ICounterObserver observer)
         {
-            this._observers.Remove(observer);
+            _instance._observers.Remove(observer);
         }
 
         public void Notify()
         {
-            foreach (ICounterObserver observer in _observers)
+            foreach (ICounterObserver observer in _instance._observers)
             {
                 observer.Update(this);
             }

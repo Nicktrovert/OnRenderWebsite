@@ -21,6 +21,7 @@
         if (firstRender)
         {
             testStuff = TestStuff.GetInstance();
+            testStuff.Attach(this);
 
             IsLoaded = true;
             StateHasChanged();
