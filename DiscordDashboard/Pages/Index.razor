@@ -6,7 +6,7 @@
 @if (IsLoaded)
 {
     <h2>@(testStuff.Counter)</h2>
-    <button @onclick="() => { testStuff.Counter++; }">Click me!</button>
+    <button @onclick="() => { testStuff.Counter++; StateHasChanged(); }">Click me!</button>
 }
 
 @code
