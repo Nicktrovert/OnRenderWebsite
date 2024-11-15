@@ -1,0 +1,28 @@
+﻿@page "/"
+@using DiscordDashboard.Code
+
+<h1>Hello, world!</h1>
+
+@if (IsLoaded)
+{
+    <h2>@(testStuff.Counter)</h2>
+    <button @onclick="() => { testStuff.Counter++; }">Click me!</button>
+}
+
+@code
+{
+    public bool IsLoaded = false;
+    public TestStuff testStuff = TestStuff.GetInstance();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            testStuff = TestStuff.GetInstance();
+
+            StateHasChanged();
+        }
+    }
+}
