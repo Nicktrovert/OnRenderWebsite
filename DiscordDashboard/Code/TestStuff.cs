@@ -1,6 +1,6 @@
 ﻿namespace DiscordDashboard.Code
 {
-    public sealed class TestStuff
+    public sealed class TestStuff : ICounterObservable
     {
         private TestStuff(){}
 
@@ -20,8 +20,31 @@
         public int Counter
         {
             get => _counter;
-            set => _counter = value;
+            set
+            {
+                _counter = value;
+                Notify();
+            }
         }
 
+        public List<ICounterObserver> _observers = new List<ICounterObserver>();
+
+        public void Attach(ICounterObserver observer)
+        {
+            this._observers.Add(observer);
+        }
+
+        public void Detach(ICounterObserver observer)
+        {
+            this._observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            foreach (ICounterObserver observer in _observers)
+            {
+                observer.Update(this);
+            }
+        }
     }
 }
