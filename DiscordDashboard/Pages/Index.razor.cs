@@ -6,7 +6,7 @@ namespace DiscordDashboard.Pages
     {
         public void Update(ICounterObservable observable)
         {
-            StateHasChanged();
+            InvokeAsync(StateHasChanged);
         }
     }
 }
