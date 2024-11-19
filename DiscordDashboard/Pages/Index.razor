@@ -4,8 +4,10 @@
 
 @if (IsLoaded)
 {
-    <h2>@(testStuff.Counter)</h2>
-    <button class="MyButton" @onclick="() => { testStuff.Counter++; StateHasChanged(); }">Click me!</button>
+    <div class="flex-column w-100p h-100p justify-center align-center">
+        <h2>@(testStuff.Counter)</h2>
+        <button class="MyButton" @onclick="() => { testStuff.Counter++; StateHasChanged(); }">Click me!</button>
+    </div>
 }
 
 @code
