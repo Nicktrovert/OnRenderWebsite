@@ -1,12 +1,11 @@
 ﻿@page "/"
-@using DiscordDashboard.Code
 
-<h1>Hello, world!</h1>
+<Navbar></Navbar>
 
 @if (IsLoaded)
 {
     <h2>@(testStuff.Counter)</h2>
-    <button @onclick="() => { testStuff.Counter++; StateHasChanged(); }">Click me!</button>
+    <button class="MyButton" @onclick="() => { testStuff.Counter++; StateHasChanged(); }">Click me!</button>
 }
 
 @code

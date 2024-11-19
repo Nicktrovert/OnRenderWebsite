@@ -1,6 +1,10 @@
-﻿﻿:root {
-      --DefaultTextColor: #C9AD8B;
- }
+﻿:root {
+    --DefaultTextColor: #f1f1f1;
+    --Violet: #8e00e7;
+    --Violet2: #490078;
+    --Violet3: #1f0032;
+    --DefaultBackgroundColor: #121212;
+}
 
 /*----background-color----*/
 .bg-white {
