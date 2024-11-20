@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using OnRenderWebsite.Code;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
@@ -22,4 +23,9 @@ app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
+KeepAlive keepAlive = new KeepAlive(20000);
+keepAlive.Start();
+
 app.Run();
+
+keepAlive.Stop();

@@ -5,15 +5,15 @@
 @if (IsLoaded)
 {
     <div class="flex-column w-100p h-100p justify-center align-center">
-        <h2>@(testStuff.Counter)</h2>
-        <button class="MyButton" @onclick="() => { testStuff.Counter++; StateHasChanged(); }">Click me!</button>
+        <h2>@(counterManager.Counter)</h2>
+        <button class="MyButton" @onclick="() => { counterManager.Counter++; StateHasChanged(); }">Click me!</button>
     </div>
 }
 
 @code
 {
     public bool IsLoaded = false;
-    public TestStuff testStuff = TestStuff.GetInstance();
+    public CounterManager counterManager = CounterManager.GetInstance();
 
     protected override void OnAfterRender(bool firstRender)
     {
@@ -21,11 +21,12 @@
 
         if (firstRender)
         {
-            testStuff = TestStuff.GetInstance();
-            testStuff.Attach(this);
+            counterManager = CounterManager.GetInstance();
+            counterManager.Attach(this);
 
             IsLoaded = true;
             StateHasChanged();
         }
     }
 }
+

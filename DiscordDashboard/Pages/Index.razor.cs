@@ -1,17 +1,17 @@
-﻿using DiscordDashboard.Code;
+﻿using OnRenderWebsite.Code;
 
-namespace DiscordDashboard.Pages
+namespace OnRenderWebsite.Pages
 {
-    public partial class Index : ICounterObserver, IDisposable
+    public partial class Index : IObserverC, IDisposable
     {
-        public void Update(ICounterObservable observable)
+        public void Update(IObservableC observable)
         {
             InvokeAsync(StateHasChanged);
         }
 
         public void Dispose()
         {
-            testStuff.Detach(this);
+            counterManager.Detach(this);
         }
     }
 }

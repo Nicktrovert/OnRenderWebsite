@@ -1,16 +1,16 @@
-﻿namespace DiscordDashboard.Code
+﻿namespace OnRenderWebsite.Code
 {
-    public sealed class TestStuff : ICounterObservable
+    public sealed class CounterManager : IObservableC
     {
-        private TestStuff(){}
+        private CounterManager(){}
 
-        private static TestStuff _instance;
+        private static CounterManager _instance;
 
-        public static TestStuff GetInstance()
+        public static CounterManager GetInstance()
         {
             if (_instance == null)
             {
-                _instance = new TestStuff();
+                _instance = new CounterManager();
             }
             return _instance;
         }
@@ -27,21 +27,21 @@
             }
         }
 
-        public List<ICounterObserver> _observers = new List<ICounterObserver>();
+        public List<IObserverC> _observers = new List<IObserverC>();
 
-        public void Attach(ICounterObserver observer)
+        public void Attach(IObserverC observer)
         {
             _instance._observers.Add(observer);
         }
 
-        public void Detach(ICounterObserver observer)
+        public void Detach(IObserverC observer)
         {
             _instance._observers.Remove(observer);
         }
 
         public void Notify()
         {
-            foreach (ICounterObserver observer in _instance._observers)
+            foreach (IObserverC observer in _instance._observers)
             {
                 observer.Update(this);
             }
