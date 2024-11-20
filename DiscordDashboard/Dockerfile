@@ -8,17 +8,17 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["DiscordDashboard/DiscordDashboard.csproj", "DiscordDashboard/"]
-RUN dotnet restore "./DiscordDashboard/DiscordDashboard.csproj"
+COPY ["OnRenderWebsite/OnRenderWebsite.csproj", "OnRenderWebsite/"]
+RUN dotnet restore "./OnRenderWebsite/OnRenderWebsite.csproj"
 COPY . .
-WORKDIR "/src/DiscordDashboard"
-RUN dotnet build "./DiscordDashboard.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/OnRenderWebsite"
+RUN dotnet build "./OnRenderWebsite.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./DiscordDashboard.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./OnRenderWebsite.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "DiscordDashboard.dll"]
+ENTRYPOINT ["dotnet", "OnRenderWebsite.dll"]
