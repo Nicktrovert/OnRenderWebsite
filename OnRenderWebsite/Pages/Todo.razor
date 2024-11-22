@@ -1,0 +1,25 @@
+﻿@page "/todo"
+@inject StorageHandler storageHandler
+
+<Navbar></Navbar>
+
+
+
+@code {
+    public bool IsLoaded = false;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (firstRender)
+        {
+            IsLoaded = true;
+            StateHasChanged();
+        }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}

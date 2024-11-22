@@ -1,8 +1,8 @@
-﻿namespace OnRenderWebsite.Code
+﻿namespace OnRenderWebsite.Code.Base
 {
     public sealed class CounterManager : IObservableC
     {
-        private CounterManager(){}
+        private CounterManager() { }
 
         private static CounterManager _instance;
 

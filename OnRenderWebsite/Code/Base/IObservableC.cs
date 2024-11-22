@@ -1,4 +1,4 @@
-﻿namespace OnRenderWebsite.Code
+﻿namespace OnRenderWebsite.Code.Base
 {
     public interface IObservableC
     {

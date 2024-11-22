@@ -1,10 +1,13 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using OnRenderWebsite.Code;
+using OnRenderWebsite.Code.Base;
+using OnRenderWebsite.Code.Storage;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddScoped<StorageHandler>();
 
 var app = builder.Build();
 
@@ -23,8 +26,15 @@ app.UseRouting();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
-KeepAlive keepAlive = new KeepAlive(20000);
+Global.Logger = app.Logger;
+
+KeepAlive keepAlive = new KeepAlive(60000);
 keepAlive.Start();
+
+foreach(var dir in Directory.GetDirectories(Directory.GetCurrentDirectory()))
+{
+    Console.WriteLine(dir);
+}
 
 app.Run();
 

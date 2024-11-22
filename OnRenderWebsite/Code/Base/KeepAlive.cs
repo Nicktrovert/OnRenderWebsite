@@ -1,4 +1,4 @@
-﻿namespace OnRenderWebsite.Code
+﻿namespace OnRenderWebsite.Code.Base
 {
     using System;
     using System.Threading;
@@ -47,7 +47,7 @@
         protected virtual void KeepAliveMethod()
         {
             // This method will be called repeatedly.
-            Console.WriteLine("KeepAlive method is running...");
+            Global.Logger.LogInformation("KeepAlive method is running...");
         }
     }
 }

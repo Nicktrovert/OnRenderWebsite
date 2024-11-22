@@ -28,19 +28,18 @@
     }
 
 :root {
-     --DefaultTextColor: #f1f1f1;
-     --Violet: #8e00e7;
-     --Violet2: #490078;
-     --Violet3: #1f0032;
-     --DefaultBackgroundColor: #121212;
- }
+    --DefaultTextColor: #f1f1f1;
+    --Violet: #8e00e7;
+    --Violet2: #490078;
+    --Violet3: #1f0032;
+    --DefaultBackgroundColor: #121212;
+}
 
 body {
     background: #121212; /* Fallback for browsers that don't support gradients */
     background: linear-gradient( 135deg, #0b0b0b 25%, #121212 25%, #121212 50%, #0b0b0b 50%, #0b0b0b 75%, #121212 75%, #121212 );
     background-size: 40px 40px;
-    color: #8e00e7;
-    /* Animation */
+    color: #8e00e7; /* Animation */
     animation: move 4s linear infinite;
 }
 
@@ -69,10 +68,12 @@ body {
     width: 10rem;
     box-shadow: #0b0b0b 0px 0px 0px 0px inset, #8e00e7 0px 0px 0px 0px;
 }
+
     .MyButton:hover {
         transition: ease-in-out 0.25s;
         box-shadow: #0b0b0b 0px 0px 0px 0px inset, #8e00e7 0px 0px 3px 1px;
     }
+
     .MyButton:active {
         transition: ease-in-out 0.25s;
         box-shadow: #0b0b0b 2px 2px 2px 2px inset, #8e00e7 0px 0px 3px 1px;

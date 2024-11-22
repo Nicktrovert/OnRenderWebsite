@@ -10,6 +10,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="UtilityLib">
+      <HintPath>..\..\MyUtilityLib\UtilityLib\bin\Release\net7.0\publish\UtilityLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
