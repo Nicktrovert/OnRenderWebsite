@@ -39,7 +39,7 @@ body {
     background: #121212; /* Fallback for browsers that don't support gradients */
     background: linear-gradient( 135deg, #0b0b0b 25%, #121212 25%, #121212 50%, #0b0b0b 50%, #0b0b0b 75%, #121212 75%, #121212 );
     background-size: 40px 40px;
-    color: #8e00e7; /* Animation */
+    color: #8e00e7;
     animation: move 4s linear infinite;
 }
 
